@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_store_test/core/domain/models/get_x/count_goods.dart';
 import 'package:flutter_store_test/core/domain/models/products/products.dart';
+import 'package:flutter_store_test/core/domain/models/purchased_goods/purchased_goods.dart';
 import 'package:flutter_store_test/core/presentation/screens/settings/domain/lang_get_x.dart';
 import 'package:flutter_store_test/core/presentation/screens/settings/domain/theme_get_x.dart';
 import 'package:flutter_store_test/core/presentation/screens/settings/presentation/settings.dart';
@@ -19,6 +20,7 @@ class Application extends StatelessWidget {
     Get.put(ThemeGetXController());
     Get.put(ControllerCounerGetX());
     Get.put(Products());
+    Get.put(PurchasedGoods());
 
     return GetMaterialApp(
       theme: ThemeData(

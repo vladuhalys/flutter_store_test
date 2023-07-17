@@ -1,4 +1,6 @@
-class Product {
+import 'package:get/get.dart';
+
+class Product extends GetxController {
   final int id;
   final String title;
   final String description;
@@ -10,6 +12,9 @@ class Product {
   final String category;
   final String thumbnail;
   final List<String> images;
+  var purchasedCount = 1.obs;
+
+  purchasedCountIncrement() => purchasedCount.value++;
 
   Product({
     required this.id,

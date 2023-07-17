@@ -11,7 +11,11 @@ class Languages extends Translations {
           'settings_theme': 'Theme',
           'settings_lang': 'English',
           'shopping_cart': 'Shopping Cart',
+          'shopping_cart_button': 'Add to Shopping Cart',
           'sign_in': 'Sign In',
+          'currency': 'USD',
+          'purchasedCount': 'Purchased Count',
+          'empty_cart': 'Empty Cart',
         },
         'uk_UA': {
           'error_text': 'Щось пішло не так!',
@@ -21,7 +25,11 @@ class Languages extends Translations {
           'settings_theme': 'Тема',
           'settings_lang': 'Українська',
           'shopping_cart': 'Кошик',
+          'shopping_cart_button': 'Додати в кошик',
           'sign_in': 'Увійти',
+          'currency': 'грн',
+          'purchasedCount': 'Куплено',
+          'empty_cart': 'Пустий кошик',
         },
       };
 }
