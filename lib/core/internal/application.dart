@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_store_test/core/domain/models/get_x/count_goods.dart';
+import 'package:flutter_store_test/core/domain/models/products/products.dart';
 import 'package:flutter_store_test/core/presentation/screens/settings/domain/lang_get_x.dart';
 import 'package:flutter_store_test/core/presentation/screens/settings/domain/theme_get_x.dart';
 import 'package:flutter_store_test/core/presentation/screens/settings/presentation/settings.dart';
@@ -13,10 +15,10 @@ class Application extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: unused_local_variable
-    LangGetXControler langController = Get.put(LangGetXControler());
-    // ignore: unused_local_variable
-    ThemeGetXController themeController = Get.put(ThemeGetXController());
+    Get.put(LangGetXControler());
+    Get.put(ThemeGetXController());
+    Get.put(ControllerCounerGetX());
+    Get.put(Products());
 
     return GetMaterialApp(
       theme: ThemeData(

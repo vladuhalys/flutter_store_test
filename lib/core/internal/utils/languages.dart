@@ -10,7 +10,8 @@ class Languages extends Translations {
           'settings': 'Settings',
           'settings_theme': 'Theme',
           'settings_lang': 'English',
-          'shopping_cart': 'Shopping Cart'
+          'shopping_cart': 'Shopping Cart',
+          'sign_in': 'Sign In',
         },
         'uk_UA': {
           'error_text': 'Щось пішло не так!',
@@ -20,6 +21,7 @@ class Languages extends Translations {
           'settings_theme': 'Тема',
           'settings_lang': 'Українська',
           'shopping_cart': 'Кошик',
+          'sign_in': 'Увійти',
         },
       };
 }
