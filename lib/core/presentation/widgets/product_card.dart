@@ -27,7 +27,7 @@ class _ProductCardState extends State<ProductCard> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(25),
         ),
-        color: const Color(0xFFE0E0E0),
+        color: Theme.of(context).cardColor,
         child: Column(
           children: [
             ClipRRect(
@@ -48,16 +48,13 @@ class _ProductCardState extends State<ProductCard> {
                       textAlign: TextAlign.left,
                       style: const TextStyle(
                         fontSize: 18,
-                        color: Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                   Text('${widget.product.price.toStringAsFixed(2)} USD',
                       style: const TextStyle(
-                          fontSize: 18,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold)),
+                          fontSize: 18, fontWeight: FontWeight.bold)),
                 ],
               ),
             ),
@@ -69,7 +66,6 @@ class _ProductCardState extends State<ProductCard> {
                 textAlign: TextAlign.left,
                 style: const TextStyle(
                   fontSize: 14,
-                  color: Colors.black,
                 ),
               ),
             ),
@@ -79,7 +75,8 @@ class _ProductCardState extends State<ProductCard> {
                 style: ButtonStyle(
                     fixedSize: MaterialStateProperty.all(
                         Size(MediaQuery.of(context).size.width, 50)),
-                    backgroundColor: MaterialStateProperty.all(Colors.indigo),
+                    backgroundColor:
+                        MaterialStateProperty.all(const Color(0xFF5566FF)),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15.0),

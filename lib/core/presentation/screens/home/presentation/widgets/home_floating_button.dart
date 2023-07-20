@@ -17,7 +17,7 @@ class _HomeFloatingActionButtonState extends State<HomeFloatingActionButton> {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      backgroundColor: Colors.indigo,
+      backgroundColor: const Color(0xFF5566FF),
       onPressed: () => Get.toNamed('/shopping_cart'),
       child: Obx(
         () => badges.Badge(

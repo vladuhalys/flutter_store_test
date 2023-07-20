@@ -26,13 +26,21 @@ class Application extends StatelessWidget {
       theme: ThemeData(
           useMaterial3: true,
           brightness: Brightness.light,
-          primarySwatch: Colors.indigo,
-          scaffoldBackgroundColor: Colors.white),
+          primaryColor: const Color(0xFF5566FF),
+          cardColor: const Color(0xFFECEFF1),
+          drawerTheme: const DrawerThemeData(
+            backgroundColor: Color(0xFFECEFF1),
+          ),
+          scaffoldBackgroundColor: const Color(0xFFF5F5F5)),
       darkTheme: ThemeData(
           useMaterial3: true,
           brightness: Brightness.dark,
-          primarySwatch: Colors.indigo,
-          scaffoldBackgroundColor: Colors.black),
+          primaryColor: const Color(0xFF5566FF),
+          cardColor: const Color(0xFF090909),
+          drawerTheme: const DrawerThemeData(
+            backgroundColor: Color(0xFF090909),
+          ),
+          scaffoldBackgroundColor: const Color(0xFF131313)),
       translations: Languages(),
       locale: Get.deviceLocale,
       fallbackLocale: const Locale('en', 'US'),
