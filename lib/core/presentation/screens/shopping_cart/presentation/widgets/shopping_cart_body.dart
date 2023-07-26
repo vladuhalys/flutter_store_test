@@ -10,9 +10,9 @@ class ShoppingCartBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ControllerCounerGetX>(builder: (controller) {
-      return (controller.count.value == 0)
+      return Obx(() => (controller.count.value == 0)
           ? const StateIsEmpty()
-          : const ListProduct();
+          : const ListProduct());
     });
   }
 }

@@ -72,15 +72,6 @@ class _ProductCardState extends State<ProductCard> {
             Padding(
               padding: const EdgeInsets.all(15),
               child: ElevatedButton(
-                style: ButtonStyle(
-                    fixedSize: MaterialStateProperty.all(
-                        Size(MediaQuery.of(context).size.width, 50)),
-                    backgroundColor:
-                        MaterialStateProperty.all(const Color(0xFF5566FF)),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ))),
                 onPressed: () {
                   if (purchasedGoods.products.contains(widget.product)) {
                     purchasedGoods.products
