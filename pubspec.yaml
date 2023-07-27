@@ -14,13 +14,18 @@ dependencies:
   firebase_auth: ^4.6.3
   firebase_storage: ^11.2.4
   firebase_ui_auth: ^1.6.0
+  google_sign_in: ^6.1.4
   firebase_ui_oauth_google: ^1.2.4
+  flutter_signin_button: ^2.0.0
   email_validator: ^2.1.17
   get: ^4.6.5
   google_fonts: ^5.1.0
   badges: ^3.1.1
   shared_preferences: ^2.2.0
-  provider: ^6.0.5
+  flutter_email_sender: ^6.0.1
+  http: ^1.1.0
+  flutter_mailer: ^2.0.0
+
   
   
 
@@ -32,3 +37,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/logo_google_icon.png

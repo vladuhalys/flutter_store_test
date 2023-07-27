@@ -1,34 +1,92 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_store_test/core/domain/models/get_x/count_goods.dart';
+import 'package:flutter_store_test/core/domain/models/purchased_goods/purchased_goods.dart';
 import 'package:flutter_store_test/core/presentation/screens/settings/domain/theme_get_x.dart';
+import 'package:flutter_store_test/core/presentation/screens/shopping_cart/presentation/widgets/shopping_cart_app_bar.dart';
+import 'package:flutter_store_test/core/presentation/screens/shopping_cart/presentation/widgets/shopping_cart_body.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ShoppingCartScreen extends StatelessWidget {
   const ShoppingCartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<ThemeGetXController>(builder: (controller) {
-      return SafeArea(
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text('shopping_cart'.tr,
-                style: GoogleFonts.montserrat(
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.w500,
-                )),
-            elevation: 0.0,
-            leading: IconButton(
-              icon: const Icon(
-                Icons.arrow_back_rounded,
-              ),
-              onPressed: () => Navigator.pop(context),
-            ),
-            backgroundColor: Colors.transparent,
-          ),
-          body: const Center(child: Text('Shopping Cart')),
-        ),
-      );
+    var controllerPurchasedGoods = Get.put(PurchasedGoods());
+    return GetBuilder<ControllerCounerGetX>(builder: (controllerCounter) {
+      return GetBuilder<ThemeGetXController>(builder: (controller) {
+        return SafeArea(
+          child: Scaffold(
+              appBar: shoppingCartAppBar(context) as PreferredSizeWidget?,
+              body: const ShoppingCartBody(),
+              floatingActionButtonLocation:
+                  FloatingActionButtonLocation.centerFloat,
+              floatingActionButton: Obx(() => Visibility(
+                    visible:
+                        (controllerCounter.count.value == 0) ? false : true,
+                    child: FloatingActionButton.extended(
+                      onPressed: () {
+                        FirebaseAuth.instance
+                            .authStateChanges()
+                            .listen((User? user) {
+                          if (user == null) {
+                            showDialog<String>(
+                              context: context,
+                              builder: (BuildContext context) => AlertDialog(
+                                title: Text('notification'.tr),
+                                content: Text(
+                                  'user_error'.tr,
+                                ),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(context, 'Cancel'),
+                                    child: const Text('Cancel'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () => Get.toNamed('/sign_in'),
+                                    child: Text('sign_in_titel'.tr),
+                                  ),
+                                ],
+                              ),
+                            );
+                          } else {
+                            showDialog<String>(
+                              context: context,
+                              builder: (BuildContext context) => AlertDialog(
+                                title: Text('receipt'.tr),
+                                content: Text(
+                                  '${'product_buy_success'.tr}, ${(FirebaseAuth.instance.currentUser?.displayName == null) ? FirebaseAuth.instance.currentUser?.email : FirebaseAuth.instance.currentUser?.displayName}.',
+                                ),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () {
+                                      var purchasedGoods =
+                                          Get.put(PurchasedGoods());
+                                      controllerCounter.count.value = 0;
+                                      purchasedGoods.products.clear();
+                                      Get.toNamed('/home');
+                                    },
+                                    child: Text('home_titel'.tr),
+                                  ),
+                                ],
+                              ),
+                            );
+                          }
+                        });
+                      },
+                      label: Obx(() => Text(
+                            '${'button_buy'.tr} ${controllerCounter.count.value} ${'items_count_titel'.tr}\n${'total_price'.tr} ${controllerPurchasedGoods.getTotalPrice().toString()} USD',
+                            style: const TextStyle(
+                              fontSize: 18,
+                              color: Colors.white,
+                            ),
+                          )),
+                      backgroundColor: const Color(0xFF5566FF),
+                    ),
+                  ))),
+        );
+      });
     });
   }
 }
