@@ -23,7 +23,6 @@ dependencies:
   badges: ^3.1.1
   shared_preferences: ^2.2.0
   http: ^1.1.0
-  flutter_mailer: ^2.0.0
 
 
 
