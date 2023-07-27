@@ -33,10 +33,18 @@ class Languages extends Translations {
           'user_error': 'You need to sign in to buy a product.',
           'product_buy_success': 'Thank you for your order',
           'receipt': 'Receipt',
+          'receipt_email': 'Thank you for your order! Order amount:',
           'notification': 'Notification',
           'home_titel': 'Home',
           'sign_in_google': 'Sign in with Google',
           'or': 'or with',
+          'good_morning': 'Good morning',
+          'good_afternoon': 'Good afternoon',
+          'good_evening': 'Good evening',
+          'profile_titel': 'Profile',
+          'sign_out': 'Sign Out',
+          'unknown_user': 'Unknown user',
+          'total_price': 'Total price:'
         },
         'uk_UA': {
           'error_text': 'Щось пішло не так!',
@@ -70,10 +78,18 @@ class Languages extends Translations {
           'user_error': 'Необхідно увійти в систему для покупки товару.',
           'product_buy_success': 'Дякуємо за ваше замовлення',
           'receipt': 'Чек',
+          'receipt_email': 'Дякую за ваше замовлення! Сума замовлення:',
           'notification': 'Повідомлення',
           'home_titel': 'Головна',
           'sign_in_google': 'Увійти через Google',
           'or': 'або через',
+          'good_morning': 'Доброго ранку',
+          'good_afternoon': 'Доброго дня',
+          'good_evening': 'Доброго вечора',
+          'profile_titel': 'Профіль',
+          'sign_out': 'Вийти',
+          'unknown_user': 'Невідомий користувач',
+          'total_price': 'Загальна ціна:'
         },
       };
 }

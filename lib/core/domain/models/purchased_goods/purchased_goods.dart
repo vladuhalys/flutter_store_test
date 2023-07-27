@@ -11,4 +11,12 @@ class PurchasedGoods extends GetxController {
       products.removeAt(index).obs;
     }
   }
+
+  getTotalPrice() {
+    double totalPrice = 0;
+    for (var i = 0; i < products.length; i++) {
+      totalPrice += products[i].price * products[i].purchasedCount.value;
+    }
+    return totalPrice;
+  }
 }

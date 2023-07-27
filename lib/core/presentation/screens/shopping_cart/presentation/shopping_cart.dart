@@ -12,12 +12,15 @@ class ShoppingCartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var controllerPurchasedGoods = Get.put(PurchasedGoods());
     return GetBuilder<ControllerCounerGetX>(builder: (controllerCounter) {
       return GetBuilder<ThemeGetXController>(builder: (controller) {
         return SafeArea(
           child: Scaffold(
               appBar: shoppingCartAppBar(context) as PreferredSizeWidget?,
               body: const ShoppingCartBody(),
+              floatingActionButtonLocation:
+                  FloatingActionButtonLocation.centerFloat,
               floatingActionButton: Obx(() => Visibility(
                     visible:
                         (controllerCounter.count.value == 0) ? false : true,
@@ -53,7 +56,7 @@ class ShoppingCartScreen extends StatelessWidget {
                               builder: (BuildContext context) => AlertDialog(
                                 title: Text('receipt'.tr),
                                 content: Text(
-                                  '${'product_buy_success'.tr}, ${FirebaseAuth.instance.currentUser?.displayName}.',
+                                  '${'product_buy_success'.tr}, ${(FirebaseAuth.instance.currentUser?.displayName == null) ? FirebaseAuth.instance.currentUser?.email : FirebaseAuth.instance.currentUser?.displayName}.',
                                 ),
                                 actions: <Widget>[
                                   TextButton(
@@ -73,7 +76,7 @@ class ShoppingCartScreen extends StatelessWidget {
                         });
                       },
                       label: Obx(() => Text(
-                            '${'button_buy'.tr} ${controllerCounter.count.value} ${'items_count_titel'.tr}',
+                            '${'button_buy'.tr} ${controllerCounter.count.value} ${'items_count_titel'.tr}\n${'total_price'.tr} ${controllerPurchasedGoods.getTotalPrice().toString()} USD',
                             style: const TextStyle(
                               fontSize: 18,
                               color: Colors.white,

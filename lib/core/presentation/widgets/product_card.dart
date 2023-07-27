@@ -29,32 +29,32 @@ class _ProductCardState extends State<ProductCard> {
         ),
         color: Theme.of(context).cardColor,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(
-              borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(25),
-                  topRight: Radius.circular(25)), // Image border
+              borderRadius:
+                  const BorderRadius.all(Radius.circular(25)), // Image border
               child: Image.network(widget.product.images.first),
             ),
-            const SizedBox(height: 10), // Space between image and text (price
+            const SizedBox(height: 20), // Space between image and text (price
             Padding(
-              padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              padding: const EdgeInsets.only(left: 20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Flexible(
-                    child: Text(
-                      widget.product.title,
-                      textAlign: TextAlign.left,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  Text(
+                    widget.product.title,
+                    textAlign: TextAlign.left,
+                    style: GoogleFonts.montserrat(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.w700,
+                      color: const Color(0xFF5566FF),
                     ),
                   ),
+                  const SizedBox(height: 10),
                   Text('${widget.product.price.toStringAsFixed(2)} USD',
                       style: const TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.bold)),
+                          fontSize: 18, fontWeight: FontWeight.w500)),
                 ],
               ),
             ),

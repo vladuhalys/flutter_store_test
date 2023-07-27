@@ -28,12 +28,13 @@ class LoginItem extends StatelessWidget {
           );
         } else if (snapshot.hasData) {
           return Padding(
-            padding: const EdgeInsets.only(right: 15.0, top: 10.0),
+            padding: const EdgeInsets.only(right: 15.0),
             child: InkWell(
               onTap: () => Get.toNamed('/profile'),
               child: CircleAvatar(
                 backgroundImage: NetworkImage(
-                  FirebaseAuth.instance.currentUser?.photoURL ?? '',
+                  FirebaseAuth.instance.currentUser?.photoURL ??
+                      'https://thinksport.com.au/wp-content/uploads/2020/01/avatar-.jpg',
                 ),
               ),
             ),
